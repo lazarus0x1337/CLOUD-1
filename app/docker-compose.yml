@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    image: "app:inception"
+    build: .
+    container_name: app
+    networks:
+      - inceptionNet
+    ports:
+      - "80:8000"
+    restart: always
+
+networks:
+  inceptionNet:
+    driver: bridge
