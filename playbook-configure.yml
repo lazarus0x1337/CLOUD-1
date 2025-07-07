@@ -1,0 +1,15 @@
+---
+- name: configure using docker-compose - Cloud-1 projet
+  hosts: all
+  become: true
+  tasks:
+  
+  - name: copy files
+    copy:
+      src: app/
+      dest: "/home/{{ ansible_user }}/app/"
+  
+  - name: docker-compose
+    community.docker.docker_compose_v2:
+      project_src: /home/{{ ansible_user }}/app/
+      state: present

@@ -1,0 +1,6 @@
+# main.yml
+- name: Run installation playbook
+  import_playbook: installation-docker.yml
+
+- name: setup configuration
+  import_playbook: playbook-configure.yml
